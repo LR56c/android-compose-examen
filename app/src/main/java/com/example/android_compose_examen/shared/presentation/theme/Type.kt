@@ -1,4 +1,4 @@
-package com.example.android_compose_examen.ui.theme
+package com.example.android_compose_examen.shared.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

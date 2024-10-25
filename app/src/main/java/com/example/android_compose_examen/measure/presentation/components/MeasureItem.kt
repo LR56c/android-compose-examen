@@ -1,4 +1,4 @@
-package com.example.android_compose_examen.components
+package com.example.android_compose_examen.measure.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.android_compose_examen.R
-import com.example.android_compose_examen.viewmodel.MeasureUI
+import com.example.android_compose_examen.measure.presentation.viewmodel.MeasureUI
 import java.text.NumberFormat
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -27,29 +27,29 @@ fun MeasureItem(modifier: Modifier = Modifier, measure: MeasureUI) {
 	Row(
 		modifier = modifier
 			.fillMaxWidth()
-			.padding(horizontal = 16.dp),
+			.padding(horizontal = 32.dp),
 		horizontalArrangement = Arrangement.SpaceBetween,
 		verticalAlignment = Alignment.CenterVertically
 	) {
 		Row(
-			modifier = Modifier.weight(0.4f),
+			modifier = Modifier.weight(0.3f),
 			verticalAlignment = Alignment.CenterVertically
 		) {
 			Image(
-				painter = painterResource(id = R.drawable.light),
+				painter = painterResource(id = measure.iconRes),
 				contentDescription = "Light",
 				modifier = Modifier.height(40.dp)
 			)
 			Text(
-				text = measure.type.name.lowercase()
+				text = stringResource(measure.typeRes).lowercase()
 					.replaceFirstChar { it.uppercase() })
 		}
 		Text(
-			modifier = Modifier.weight(0.3f),
+			modifier = Modifier.weight(0.2f),
 			text = moneyFormatter.format(measure.price)
 		)
 		Text(
-			modifier = Modifier.weight(0.3f),
+			modifier = Modifier.weight(0.4f),
 			text = dateFormatter.format(measure.createdAt)
 		)
 	}

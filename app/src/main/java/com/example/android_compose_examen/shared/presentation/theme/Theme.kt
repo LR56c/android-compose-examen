@@ -1,6 +1,5 @@
-package com.example.android_compose_examen.ui.theme
+package com.example.android_compose_examen.shared.presentation.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

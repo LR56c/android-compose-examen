@@ -1,23 +1,23 @@
-package com.example.android_compose_examen.navigation
+package com.example.android_compose_examen.shared.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.android_compose_examen.screens.MeasureFormScreen
-import com.example.android_compose_examen.screens.MeasureHomeScreen
-import com.example.android_compose_examen.viewmodel.MeasureViewModel
+import com.example.android_compose_examen.measure.presentation.screens.MeasureFormScreen
+import com.example.android_compose_examen.measure.presentation.screens.MeasureHomeScreen
+import com.example.android_compose_examen.measure.presentation.viewmodel.MeasureViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Preview(showSystemUi = true)
 @Composable
 fun NavegationApp(
 	navController: NavHostController = rememberNavController(),
-	measureViewModel: MeasureViewModel = MeasureViewModel()
+	measureViewModel: MeasureViewModel = koinViewModel()
 ) {
 	val state by measureViewModel.state.collectAsStateWithLifecycle()
 	NavHost(
@@ -27,7 +27,6 @@ fun NavegationApp(
 		composable("home") {
 			MeasureHomeScreen(
 				state = state,
-				onAction = measureViewModel::onAction,
 				onNavigateToMeasureForm = {
 					navController.navigate("measure")
 				}
@@ -35,7 +34,6 @@ fun NavegationApp(
 		}
 		composable("measure") {
 			MeasureFormScreen(
-				state = state,
 				onAction = measureViewModel::onAction,
 				onBackButtonClicked = {
 					navController.popBackStack()
