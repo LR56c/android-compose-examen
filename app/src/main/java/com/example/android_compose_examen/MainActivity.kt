@@ -4,8 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.android_compose_examen.shared.presentation.NavegationApp
-import com.example.android_compose_examen.shared.presentation.theme.AndroidcomposeexamenTheme
+import com.example.android_compose_examen.ui.shared.theme.AndroidcomposeexamenTheme
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {

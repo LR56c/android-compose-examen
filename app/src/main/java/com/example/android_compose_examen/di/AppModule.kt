@@ -1,9 +1,9 @@
 package com.example.android_compose_examen.di
 import android.app.Application
 import androidx.room.Room
+import com.example.android_compose_examen.configuration.data.Database
 import org.koin.dsl.module
-import com.example.android_compose_examen.measure.presentation.viewmodel.MeasureViewModel
-import com.example.android_compose_examen.shared.data.Database
+import com.example.android_compose_examen.ui.measure.viewmodel.MeasureViewModel
 import org.koin.core.module.dsl.viewModelOf
 
 fun appModule(application: Application) = module {
@@ -11,3 +11,5 @@ fun appModule(application: Application) = module {
 	single { get<Database>().measureDao() }
 	viewModelOf(::MeasureViewModel)
 }
+
+
